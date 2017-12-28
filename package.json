@@ -4,8 +4,11 @@
   "description": "A wrapper for Spotify web API",
   "main": "src/index.js",
   "scripts": {
-    "clear": "rimraf lib",
+    "clear": "rimraf lib && rimraf dist",
     "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
+    "build:umd": "./node_modules/.bin/webpack",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+    "build:all": "npm run build && npm run build:umd && npm run build:umd:min",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:watch": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
     "coverage": "nyc npm test",
@@ -44,6 +47,7 @@
   "homepage": "https://github.com/thulioph/spotify-wrapper#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
@@ -56,6 +60,7 @@
     "nyc": "^11.3.0",
     "sinon": "^4.1.3",
     "sinon-chai": "^2.14.0",
-    "sinon-stub-promise": "^4.0.0"
+    "sinon-stub-promise": "^4.0.0",
+    "webpack": "^3.10.0"
   }
 }
