@@ -1,16 +1,17 @@
 /* global fetch:false */
 
-import CONFIG from '../src/config';
+import { CONFIG, API_URL } from '../src/config';
+import { toJSON } from './utils';
 
 export const search = (query, type) => {
-  const url = `https://api.spotify.com/v1/search?q=${query}&type=${type}`;
+  const url = `${API_URL}/search?q=${query}&type=${type}`;
   const options = {
     headers: {
       Authorization: CONFIG.Authorization,
     },
   };
 
-  return fetch(url, options).then(data => data.json());
+  return fetch(url, options).then(data => toJSON(data));
 };
 
 export const searchAlbums = query => search(query, 'album');
