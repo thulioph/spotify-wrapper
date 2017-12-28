@@ -4,6 +4,7 @@
   "description": "A wrapper for Spotify web API",
   "main": "src/index.js",
   "scripts": {
+    "build": "./node_modules/.bin/babel --out-dir lib src",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:watch": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
     "coverage": "nyc npm test",
@@ -41,6 +42,7 @@
   },
   "homepage": "https://github.com/thulioph/spotify-wrapper#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
