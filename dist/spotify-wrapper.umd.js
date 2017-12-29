@@ -84,7 +84,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var CONFIG = exports.CONFIG = {
-  Authorization: 'Bearer BQBvTeCDuuOwME32ISm9nU2eZQHGT-zLku8lry2aiKrkeKU5RI3h5QRHl2ghw6gRa3q14d917hka2zlcYCw'
+  Authorization: 'Bearer BQDiPsI-7RprUCAiKr8yTqKbU2rOOTECgVtFsptZUaBJwzbYUZ8zP695LqfQwG12LfhpByaKf78brWkowcA'
 };
 
 var API_URL = exports.API_URL = 'https://api.spotify.com/v1';
@@ -169,19 +169,40 @@ exports.getAlbumTracks = exports.getAlbums = exports.getAlbum = undefined;
 var _config = __webpack_require__(0);
 
 var getAlbum = exports.getAlbum = function getAlbum(id) {
-  return fetch(_config.API_URL + '/albums/' + id).then(function (data) {
+  var url = _config.API_URL + '/albums/' + id;
+  var options = {
+    headers: {
+      Authorization: _config.CONFIG.Authorization
+    }
+  };
+
+  return fetch(url, options).then(function (data) {
     return data.json();
   });
 }; /* global fetch:false */
 
 var getAlbums = exports.getAlbums = function getAlbums(id) {
-  return fetch(_config.API_URL + '/albums/?ids=' + id).then(function (data) {
+  var url = _config.API_URL + '/albums/?ids=' + id;
+  var options = {
+    headers: {
+      Authorization: _config.CONFIG.Authorization
+    }
+  };
+
+  return fetch(url, options).then(function (data) {
     return data.json();
   });
 };
 
 var getAlbumTracks = exports.getAlbumTracks = function getAlbumTracks(id) {
-  return fetch(_config.API_URL + '/albums/' + id + '/tracks').then(function (data) {
+  var url = _config.API_URL + '/albums/' + id + '/tracks';
+  var options = {
+    headers: {
+      Authorization: _config.CONFIG.Authorization
+    }
+  };
+
+  return fetch(url, options).then(function (data) {
     return data.json();
   });
 };
