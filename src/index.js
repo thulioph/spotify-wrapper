@@ -6,24 +6,23 @@ import {
   searchPlaylists,
 } from './search';
 
-import {
-  getAlbum,
-  getAlbums,
-  getAlbumTracks,
-} from './album';
+// import {
+//   getAlbum,
+//   getAlbums,
+//   getAlbumTracks,
+// } from './album';
+import album from './album';
 
-import {
-  API_URL,
-} from './config';
+import { API_URL } from './config';
 
 // ====
 
 export default class SpotifyWrapper {
   constructor(options) {
-    const { apiUrl, token } = options;
+    this.apiUrl = options.apiUrl || API_URL;
+    this.token = options.token;
 
-    this.apiUrl = apiUrl || API_URL;
-    this.token = token;
+    this.album = album.bind(this)();
   }
 
   request(url) {
