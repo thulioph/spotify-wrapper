@@ -16,6 +16,10 @@
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint && npm run coverage"
   },
+  "files": [
+    "dist",
+    "lib"
+  ],
   "nyc": {
     "functions": 80,
     "lines": 80,
