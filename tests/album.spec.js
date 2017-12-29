@@ -50,21 +50,17 @@ describe('Album', () => {
 
     it('should call fetch with the correct URL', () => {
       const album = spotify.album.getAlbum('4aawyAB9vmqN3uQ7FjRGTy');
-
-      expect(stubedFetch).to.have.been
-        .calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy');
-
+      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy');
 
       const album2 = spotify.album.getAlbum('4aawyAB9vmqN3uQ7FjRGTk');
-      expect(stubedFetch).to.have.been
-        .calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTk');
+      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTk');
     });
 
     it('should return the correct data from promise.', () => {
-      promise.resolves({ album: 'name'});
+      promise.resolves({ album: 'name' });
       const album = spotify.album.getAlbum('4aawyAB9vmqN3uQ7FjRGTy');
 
-      expect(album.resolveValue).to.be.eql({album: 'name'});
+      expect(album.resolveValue).to.be.eql({ album: 'name' });
     });
   });
 
@@ -77,14 +73,10 @@ describe('Album', () => {
 
     it('should call fetch with the correct URL', () => {
       const albums = spotify.album.getAlbums(['4aawyAB9vmqN3uQ7FjRGTy', '4aawyAB9vmqN3uQ7FjRGTk']);
-
-      expect(stubedFetch).to.have.been
-        .calledWith('https://api.spotify.com/v1/albums/?ids=4aawyAB9vmqN3uQ7FjRGTy,4aawyAB9vmqN3uQ7FjRGTk');
-
+      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/albums/?ids=4aawyAB9vmqN3uQ7FjRGTy,4aawyAB9vmqN3uQ7FjRGTk');
 
       const albums2 = spotify.album.getAlbums(['4aawyAB9vmqN3uQ7FjRGTk', '4aawyAB9vmqN3uQ7FjRGTy']);
-      expect(stubedFetch).to.have.been
-        .calledWith('https://api.spotify.com/v1/albums/?ids=4aawyAB9vmqN3uQ7FjRGTk,4aawyAB9vmqN3uQ7FjRGTy');
+      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/albums/?ids=4aawyAB9vmqN3uQ7FjRGTk,4aawyAB9vmqN3uQ7FjRGTy');
     });
 
     it('should return the correct data from promise.', () => {
@@ -104,14 +96,10 @@ describe('Album', () => {
 
     it('should call fetch with the correct URL', () => {
       const tracks = spotify.album.getTracks('4aawyAB9vmqN3uQ7FjRGTy');
-
-      expect(stubedFetch).to.have.been
-        .calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy/tracks');
-
+      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy/tracks');
 
       const tracks2 = spotify.album.getTracks(['4aawyAB9vmqN3uQ7FjRGTk']);
-      expect(stubedFetch).to.have.been
-        .calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTk/tracks');
+      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTk/tracks');
     });
 
     it('should return the correct data from promise.', () => {
