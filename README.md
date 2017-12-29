@@ -2,6 +2,8 @@
 
 A wrapper to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
+[![Build Status](https://travis-ci.org/thulioph/spotify-wrapper.svg?branch=master)](https://travis-ci.org/thulioph/spotify-wrapper)
+
 ## Browser Support
 
 This library relies on [Fetch API](https://fetch.spec.whatwg.org/). And this API is supported in the following browsers.
@@ -235,6 +237,3 @@ See also the list of [contributors](https://github.com/thulioph/spotify-wrapper/
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-> a pasta `lib` contém os arquivos separados em ES5, utilizados no import
-> a pasta `dist` contém os arquivos em UMD, utilizados no browser
