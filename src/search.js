@@ -1,6 +1,6 @@
 /* global fetch:false */
 
-import { CONFIG, API_URL } from '../src/config';
+import { CONFIG, API_URL } from './config';
 
 export const search = (query, type) => {
   const url = `${API_URL}/search?q=${query}&type=${type}`;

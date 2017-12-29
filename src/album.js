@@ -1,6 +1,6 @@
 /* global fetch:false */
 
-import { CONFIG, API_URL } from '../src/config';
+import { CONFIG, API_URL } from './config';
 
 export const getAlbum = (id) => {
   const url = `${API_URL}/albums/${id}`;
