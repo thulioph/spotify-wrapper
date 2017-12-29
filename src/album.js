@@ -1,16 +1,36 @@
 /* global fetch:false */
 
-import { API_URL } from './config';
-import { toJSON } from './utils';
+import { CONFIG, API_URL } from './config';
 
-export const getAlbum = id => (
-  fetch(`${API_URL}/albums/${id}`).then(data => toJSON(data))
-);
+export const getAlbum = (id) => {
+  const url = `${API_URL}/albums/${id}`;
+  const options = {
+    headers: {
+      Authorization: CONFIG.Authorization,
+    },
+  };
 
-export const getAlbums = id => (
-  fetch(`${API_URL}/albums/?ids=${id}`).then(data => toJSON(data))
-);
+  return fetch(url, options).then(data => data.json());
+};
 
-export const getAlbumTracks = id => (
-  fetch(`${API_URL}/albums/${id}/tracks`).then(data => toJSON(data))
-);
+export const getAlbums = (id) => {
+  const url = `${API_URL}/albums/?ids=${id}`;
+  const options = {
+    headers: {
+      Authorization: CONFIG.Authorization,
+    },
+  };
+
+  return fetch(url, options).then(data => data.json());
+};
+
+export const getAlbumTracks = (id) => {
+  const url = `${API_URL}/albums/${id}/tracks`;
+  const options = {
+    headers: {
+      Authorization: CONFIG.Authorization,
+    },
+  };
+
+  return fetch(url, options).then(data => data.json());
+};

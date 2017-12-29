@@ -1,7 +1,6 @@
 /* global fetch:false */
 
-import { CONFIG, API_URL } from '../src/config';
-import { toJSON } from './utils';
+import { CONFIG, API_URL } from './config';
 
 export const search = (query, type) => {
   const url = `${API_URL}/search?q=${query}&type=${type}`;
@@ -11,7 +10,7 @@ export const search = (query, type) => {
     },
   };
 
-  return fetch(url, options).then(data => toJSON(data));
+  return fetch(url, options).then(data => data.json());
 };
 
 export const searchAlbums = query => search(query, 'album');
