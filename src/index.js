@@ -16,16 +16,7 @@ import {
   API_URL,
 } from './config';
 
-// module.exports = {
-//   search,
-//   searchAlbums,
-//   searchArtists,
-//   searchTracks,
-//   searchPlaylists,
-//   getAlbum,
-//   getAlbums,
-//   getAlbumTracks,
-// };
+// ====
 
 export default class SpotifyWrapper {
   constructor(options) {
@@ -33,5 +24,15 @@ export default class SpotifyWrapper {
 
     this.apiUrl = apiUrl || API_URL;
     this.token = token;
+  }
+
+  request(url) {
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${this.token}`,
+      },
+    };
+
+    return fetch(url, headers);
   }
 }
