@@ -1,5 +1,5 @@
 export const CONFIG = {
-  Authorization: 'Bearer BQDiPsI-7RprUCAiKr8yTqKbU2rOOTECgVtFsptZUaBJwzbYUZ8zP695LqfQwG12LfhpByaKf78brWkowcA',
+  Authorization: 'Bearer BQAIzfyCEHcG6SgwMGMXqWHIdJLajCox6WOino6rqAsxx9RJTSPbVUbBUCuvp2NmFemTY9riCIfNL4zvsYY',
 };
 
 export const API_URL = 'https://api.spotify.com/v1';
