@@ -1,22 +1,12 @@
-/* global fetch:false */
+function searcher(type, query) {
+  return this.request(`${this.apiUrl}/search?q=${query}&type=${type}`);
+}
 
-import { CONFIG, API_URL } from './config';
-
-export const search = (query, type) => {
-  const url = `${API_URL}/search?q=${query}&type=${type}`;
-  const options = {
-    headers: {
-      Authorization: CONFIG.Authorization,
-    },
+export default function search() {
+  return {
+    albums: searcher.bind(this, 'album'),
+    artists: searcher.bind(this, 'artist'),
+    tracks: searcher.bind(this, 'track'),
+    playlists: searcher.bind(this, 'playlist'),
   };
-
-  return fetch(url, options).then(data => data.json());
-};
-
-export const searchAlbums = query => search(query, 'album');
-
-export const searchArtists = query => search(query, 'artist');
-
-export const searchTracks = query => search(query, 'track');
-
-export const searchPlaylists = query => search(query, 'playlist');
+}
