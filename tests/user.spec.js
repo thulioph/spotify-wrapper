@@ -15,7 +15,7 @@ global.fetch = nodeFetch;
 
 // ====
 
-describe.only('User', () => {
+describe('User', () => {
   let spotify;
   let stubedFetch;
   let promise;
