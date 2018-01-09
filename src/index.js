@@ -2,6 +2,7 @@
 
 import search from './search';
 import album from './album';
+import audio from './audio';
 
 import API_URL from './config';
 
@@ -14,6 +15,7 @@ export default class SpotifyWrapper {
 
     this.album = album.bind(this)();
     this.search = search.bind(this)();
+    this.audio = audio.bind(this)();
   }
 
   request(url) {

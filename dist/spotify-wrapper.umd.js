@@ -91,7 +91,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* global fetch:false */
 
 var _search = __webpack_require__(2);
 
@@ -101,7 +101,13 @@ var _album = __webpack_require__(3);
 
 var _album2 = _interopRequireDefault(_album);
 
-var _config = __webpack_require__(4);
+var _audio = __webpack_require__(4);
+
+var _audio2 = _interopRequireDefault(_audio);
+
+var _config = __webpack_require__(5);
+
+var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -113,11 +119,12 @@ var SpotifyWrapper = function () {
   function SpotifyWrapper(options) {
     _classCallCheck(this, SpotifyWrapper);
 
-    this.apiUrl = options.apiUrl || _config.API_URL;
+    this.apiUrl = options.apiUrl || _config2.default;
     this.token = options.token;
 
     this.album = _album2.default.bind(this)();
     this.search = _search2.default.bind(this)();
+    this.audio = _audio2.default.bind(this)();
   }
 
   _createClass(SpotifyWrapper, [{
@@ -201,7 +208,33 @@ function album() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var API_URL = exports.API_URL = 'https://api.spotify.com/v1';
+exports.default = audio;
+function audio() {
+  var _this = this;
+
+  return {
+    analysis: function analysis(trackID) {
+      return _this.request(_this.apiUrl + "/audio-analysis/" + trackID);
+    },
+    features: function features(trackID) {
+      return _this.request(_this.apiUrl + "/audio-features/" + trackID);
+    }
+  };
+}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var API_URL = 'https://api.spotify.com/v1';
+
+exports.default = API_URL;
 
 /***/ })
 /******/ ]);

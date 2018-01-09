@@ -1,9 +1,9 @@
 # Spotify Wrapper
 
-A wrapper to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
-
 [![Build Status](https://travis-ci.org/thulioph/spotify-wrapper.svg?branch=master)](https://travis-ci.org/thulioph/spotify-wrapper)
 [![Coverage Status](https://coveralls.io/repos/github/thulioph/spotify-wrapper/badge.svg?branch=master)](https://coveralls.io/github/thulioph/spotify-wrapper?branch=master)
+
+A wrapper to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
 ## Browser Support
 
@@ -29,16 +29,24 @@ $ npm install spotify-wrapper --save
 
 ```js
 // to import a specific method
-import { method } from 'spotify-wrapper';
+import SpotifyWrapper from 'spotify-wrapper';
 
-// to import everything
-import * as spotifyWrapper from 'spotify-wrapper';
+const spotify = new SpotifyWrapper({
+  token: 'YOUR_TOKEN_HERE'
+});
+
+// using  method
+spotify.search.artists('Incubus');
 ```
 
 ### CommonJS
 
 ```js
-var spotifyWrapper = require('spotify-wrapper');
+const SpotifyWrapper = require('spotify-wrapper').default;
+
+const spotify = new SpotifyWrapper({
+  token: 'YOUR_TOKEN_HERE'
+});
 ```
 
 ### UMD in Browser
@@ -51,37 +59,22 @@ var spotifyWrapper = require('spotify-wrapper');
 <script src="spotify-wrapper.umd.min.js"></script>
 ```
 
-After that the library will be available to the Global as `spotifyWrapper`. Follow an example:
+After that the library will be available to the Global as `SpotifyWrapper`. Follow an example:
 
 ```js
-const albums = spotifyWrapper.searchAlbums('Choosen Artist');
+
+const spotify = new SpotifyWrapper({
+  token: 'YOUR_TOKEN_HERE'
+});
+
+const albums = spotify.search.albums('Choosen Artist');
 ```
 
 ## Methods
 
 > Follow the methods that the library provides.
 
-### search(query, types)
-
-> Search for informations about artists, albums, tracks or playlists. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/).
-
-**Arguments**
-
-| Argument | Type              | Options                                 |
-|----------|-------------------|-----------------------------------------|
-|`query`   |*string*           | 'Any search query'                      |
-|`type`    |*Array of strings* | ['artist', 'album', 'track', 'playlist']|
-
-**Example**
-
-```js
-search('Korn', ['artist', 'album'])
-  .then(data => {
-    // do what you want with the data
-  })
-```
-
-### searchAlbums(query)
+### search.albums(query)
 
 > Search for informations about Albums with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as *album*.
 
@@ -95,13 +88,13 @@ search('Korn', ['artist', 'album'])
 **Example**
 
 ```js
-searchAlbums('Korn')
+spotify.search.albums('Nirvana')
   .then(data => {
     // do what you want with the data
   })
 ```
 
-### searchArtists(query)
+### search.artists(query)
 
 > Search for informations about Artists with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as *artist*.
 
@@ -115,13 +108,13 @@ searchAlbums('Korn')
 **Example**
 
 ```js
-searchArtists('Korn')
+spotify.search.artists('Nirvana')
   .then(data => {
     // do what you want with the data
   })
 ```
 
-### searchTracks(query)
+### search.tracks(query)
 
 > Search for informations about Tracks with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as *track*.
 
@@ -135,13 +128,13 @@ searchArtists('Korn')
 **Example**
 
 ```js
-searchTracks('Did My Time')
+spotify.search.tracks('Come as you are')
   .then(data => {
     // do what you want with the data
   })
 ```
 
-### searchPlaylists(query)
+### search.playlists(query)
 
 > Search for informations about Playlist with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as *playlist*.
 
@@ -155,13 +148,13 @@ searchTracks('Did My Time')
 **Example**
 
 ```js
-searchPlaylists('Happy Day')
+spotify.search.playlists('Hype')
   .then(data => {
     // do what you want with the data
   })
 ```
 
-### getAlbum(id)
+### album.getAlbum(id)
 
 > Search for informations about a specific Album with provided id. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-album/).
 
@@ -175,13 +168,13 @@ searchPlaylists('Happy Day')
 **Example**
 
 ```js
-getAlbum('7D3XFJlfZIkmGWqZXm2X8z')
+spotify.album.getAlbum('7D3XFJlfZIkmGWqZXm2X8z')
   .then(data => {
     // do what you want with the data
   })
 ```
 
-### getAlbums(ids)
+### album.getAlbums(ids)
 
 > Search for informations about some Albums with all id's. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-several-albums/).
 
@@ -194,13 +187,13 @@ getAlbum('7D3XFJlfZIkmGWqZXm2X8z')
 **Example**
 
 ```js
-getAlbum(['7D3XFJlfZIkmGWqZXm2X8z', '0gsiszk6JWYwAyGvaTTud4'])
+spotify.album.getAlbums(['7D3XFJlfZIkmGWqZXm2X8z', '7D3XFJlfZIkmGWqZXm2X8s'])
   .then(data => {
     // do what you want with the data
   })
 ```
 
-### getAlbumTracks(id)
+### album.getTracks(id)
 
 > Search for all tracks in a specific Album with provided id. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-album-tracks/).
 
@@ -213,7 +206,45 @@ getAlbum(['7D3XFJlfZIkmGWqZXm2X8z', '0gsiszk6JWYwAyGvaTTud4'])
 **Example**
 
 ```js
-getAlbum('7D3XFJlfZIkmGWqZXm2X8z')
+spotify.album.getTracks('7D3XFJlfZIkmGWqZXm2X8z')
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
+### audio.analysis(id)
+
+> Get a detailed audio analysis for a single track with provided id. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-audio-analysis-track/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`   |*string* | 'Specific id'|
+
+**Example**
+
+```js
+spotify.audio.analysis('1pr9TZGOXeJUggIal1Wq3R')
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
+### audio.features(id)
+
+> Get an audio feature information for a single track with provided id. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-audio-features-track/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`   |*string* | 'Specific id'|
+
+**Example**
+
+```js
+spotify.audio.features('1pr9TZGOXeJUggIal1Wq3R')
   .then(data => {
     // do what you want with the data
   })
