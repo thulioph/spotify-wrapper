@@ -105,7 +105,11 @@ var _audio = __webpack_require__(4);
 
 var _audio2 = _interopRequireDefault(_audio);
 
-var _config = __webpack_require__(5);
+var _user = __webpack_require__(5);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _config = __webpack_require__(6);
 
 var _config2 = _interopRequireDefault(_config);
 
@@ -125,6 +129,7 @@ var SpotifyWrapper = function () {
     this.album = _album2.default.bind(this)();
     this.search = _search2.default.bind(this)();
     this.audio = _audio2.default.bind(this)();
+    this.user = _user2.default.bind(this)();
   }
 
   _createClass(SpotifyWrapper, [{
@@ -224,6 +229,30 @@ function audio() {
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = user;
+function user() {
+  var _this = this;
+
+  return {
+    topArtists: function topArtists() {
+      return _this.request(_this.apiUrl + "/v1/me/top/artists");
+    },
+    topTracks: function topTracks() {
+      return _this.request(_this.apiUrl + "/v1/me/top/tracks");
+    }
+  };
+}
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
