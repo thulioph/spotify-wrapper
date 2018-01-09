@@ -250,6 +250,32 @@ spotify.audio.features('1pr9TZGOXeJUggIal1Wq3R')
   })
 ```
 
+### user.topArtists()
+
+> Get the current user's top artists based on calculated affinity. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-current-user-top-artists-and-tracks/).
+
+**Example**
+
+```js
+spotify.user.topArtists()
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
+### user.topTracks()
+
+> Get the current user's top tracks based on calculated affinity. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-current-user-top-artists-and-tracks/).
+
+**Example**
+
+```js
+spotify.user.topTracks()
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
