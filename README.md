@@ -212,6 +212,44 @@ spotify.album.getTracks('7D3XFJlfZIkmGWqZXm2X8z')
   })
 ```
 
+### audio.analysis(id)
+
+> Get a detailed audio analysis for a single track with provided id. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-audio-analysis-track/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`   |*string* | 'Specific id'|
+
+**Example**
+
+```js
+spotify.audio.analysis('1pr9TZGOXeJUggIal1Wq3R')
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
+### audio.features(id)
+
+> Get an audio feature information for a single track with provided id. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-audio-features-track/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`   |*string* | 'Specific id'|
+
+**Example**
+
+```js
+spotify.audio.features('1pr9TZGOXeJUggIal1Wq3R')
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
