@@ -247,6 +247,9 @@ function user() {
     },
     topTracks: function topTracks() {
       return _this.request(_this.apiUrl + "/me/top/tracks");
+    },
+    recomendations: function recomendations(type, id) {
+      return _this.request(_this.apiUrl + "/recommendations?seed_" + type + "=" + id);
     }
   };
 }

@@ -276,6 +276,26 @@ spotify.user.topTracks()
   })
 ```
 
+### user.recomendations(type, id)
+
+> Get a list of recomended tracks, artists or genders with provided id. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-recommendations/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`type` |*string* | 'tracks, artists or genres'|
+|`id`   |*string* | 'Specific id'|
+
+**Example**
+
+```js
+spotify.user.recomendations('tracks', '1bbWbxRbICBjpfPsug8dQ3')
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
