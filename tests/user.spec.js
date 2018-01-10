@@ -51,7 +51,7 @@ describe('User', () => {
 
     it('should call fetch with the correct URL', () => {
       const topArtists = spotify.user.topArtists();
-      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/v1/me/top/artists');
+      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/me/top/artists');
     });
 
     it('should return the correct data from promise', () => {
@@ -79,7 +79,7 @@ describe('User', () => {
 
     it('should call fetch with the correct URL', () => {
       const topTracks = spotify.user.topTracks();
-      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/v1/me/top/tracks');
+      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/me/top/tracks');
     });
 
     it('should return the correct data from promise', () => {
