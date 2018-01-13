@@ -242,6 +242,9 @@ function user() {
   var _this = this;
 
   return {
+    profile: function profile() {
+      return _this.request(_this.apiUrl + "/me");
+    },
     topArtists: function topArtists() {
       return _this.request(_this.apiUrl + "/me/top/artists");
     },
