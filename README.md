@@ -250,6 +250,19 @@ spotify.audio.features('1pr9TZGOXeJUggIal1Wq3R')
   })
 ```
 
+### user.profile()
+
+> Get the current user's profile information. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-current-user/).
+
+**Example**
+
+```js
+spotify.user.profile()
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
 ### user.topArtists()
 
 > Get the current user's top artists based on calculated affinity. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-current-user-top-artists-and-tracks/).
