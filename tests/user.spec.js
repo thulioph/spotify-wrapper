@@ -45,6 +45,10 @@ describe('User', () => {
     it('should have recomendations method.', () => {
       expect(spotify.user.recomendations).to.exist;
     });
+
+    it('should have profile method.', () => {
+      expect(spotify.user.profile).to.exist;
+    });
   });
 
   describe('topArtists', () => {
@@ -113,6 +117,40 @@ describe('User', () => {
       const topTracks = spotify.user.topTracks();
 
       expect(topTracks.resolveValue).to.be.eql(obj);
+    });
+  });
+
+  describe('profile', () => {
+    it('should call fetch method', () => {
+      const userProfile = spotify.user.profile();
+      expect(stubedFetch).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with the correct URL', () => {
+      const userProfile = spotify.user.profile();
+      expect(stubedFetch).to.have.been.calledWith('https://api.spotify.com/v1/me');
+    });
+
+    it('should return the correct data from promise', () => {
+      const obj = {
+        birthdate: '1937-06-01',
+        country: 'SE',
+        display_name: 'JM Wizzler',
+        email: 'email@example.com',
+        external_urls: {},
+        followers: {},
+        href: 'https://api.spotify.com/v1/users/wizzler',
+        id: 'wizzler',
+        images: [],
+        product: 'premium',
+        type: 'user',
+        uri: 'spotify:user:wizzler',
+      };
+
+      promise.resolves(obj);
+      const userProfile = spotify.user.profile();
+
+      expect(userProfile.resolveValue).to.be.eql(obj);
     });
   });
 

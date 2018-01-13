@@ -20,7 +20,7 @@ This library depends on [fetch](https://fetch.spec.whatwg.org/) to make requests
 ## Installation
 
 ```sh
-$ npm install spotify-wrapper --save
+$ npm install git+https://git@github.com/thulioph/spotify-wrapper.git --save
 ```
 
 ## How to use
@@ -245,6 +245,19 @@ spotify.audio.analysis('1pr9TZGOXeJUggIal1Wq3R')
 
 ```js
 spotify.audio.features('1pr9TZGOXeJUggIal1Wq3R')
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
+### user.profile()
+
+> Get the current user's profile information. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-current-user/).
+
+**Example**
+
+```js
+spotify.user.profile()
   .then(data => {
     // do what you want with the data
   })
