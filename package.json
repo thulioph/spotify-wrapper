@@ -1,5 +1,5 @@
 {
-  "name": "spotify-wrapper",
+  "name": "spotify-wrapper-web-api",
   "version": "1.0.5",
   "description": "A wrapper for Spotify web API",
   "main": "lib/index.js",
