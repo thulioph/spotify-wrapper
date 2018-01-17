@@ -20,7 +20,7 @@ This library depends on [fetch](https://fetch.spec.whatwg.org/) to make requests
 ## Installation
 
 ```sh
-$ npm install spotify-wrapper --save
+$ npm install git+https://git@github.com/thulioph/spotify-wrapper.git --save
 ```
 
 ## How to use
@@ -250,6 +250,19 @@ spotify.audio.features('1pr9TZGOXeJUggIal1Wq3R')
   })
 ```
 
+### user.profile()
+
+> Get the current user's profile information. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-current-user/).
+
+**Example**
+
+```js
+spotify.user.profile()
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
 ### user.topArtists()
 
 > Get the current user's top artists based on calculated affinity. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-current-user-top-artists-and-tracks/).
@@ -271,6 +284,26 @@ spotify.user.topArtists()
 
 ```js
 spotify.user.topTracks()
+  .then(data => {
+    // do what you want with the data
+  })
+```
+
+### user.recomendations(type, id)
+
+> Get a list of recomended tracks, artists or genders with provided id. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-recommendations/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`type` |*string* | 'tracks, artists or genres'|
+|`id`   |*string* | 'Specific id'|
+
+**Example**
+
+```js
+spotify.user.recomendations('tracks', '1bbWbxRbICBjpfPsug8dQ3')
   .then(data => {
     // do what you want with the data
   })
