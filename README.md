@@ -20,7 +20,7 @@ This library depends on [fetch](https://fetch.spec.whatwg.org/) to make requests
 ## Installation
 
 ```sh
-$ npm install git+https://git@github.com/thulioph/spotify-wrapper.git --save
+$ npm install spotify-wrapper-web-api --save
 ```
 
 ## How to use
